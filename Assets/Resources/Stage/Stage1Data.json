@@ -1,0 +1,8 @@
+{
+	"comment": "Stage1Data",
+
+	"geneTbl": [
+		{"emNo": 0, "level": 0, "start": 0.0, "end": 30.0, "interval": 1.0, "gLine": 0	},
+		{"emNo": 1, "level": 0, "start": 10.0, "end": 30.0, "interval": 1.0, "gLine": 0	}
+	]
+}

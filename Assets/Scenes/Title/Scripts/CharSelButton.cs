@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class CharSelButton : MonoBehaviour
+{
+    string[] jobNameTbl = {
+        "éò",
+        "ã@çHém",
+        "óxÇËéq",
+        "è¢ä´ém",
+        "çïñÇì±ém",
+        "îíñÇì±ém",
+    };
+
+    Text childText;
+
+    void Start()
+    {
+        int butNo = transform.GetSiblingIndex();
+
+        childText = GetComponentInChildren<Text>();
+        childText.text = jobNameTbl[butNo];
+    }
+
+    void Update()
+    {        
+    }
+}

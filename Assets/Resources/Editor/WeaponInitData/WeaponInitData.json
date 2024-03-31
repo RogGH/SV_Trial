@@ -1,0 +1,82 @@
+[
+	{
+		"id": 0,
+		"enumName": "HandGun",
+		"atk": 20,
+		"recastDef": 1.1,
+		"recastMin": 0.45,
+		"speed": 480,
+		"num": 1,
+		"time": ""
+	},
+	{
+		"id": 1,
+		"enumName": "Drill",
+		"atk": 60,
+		"recastDef": 3.5,
+		"recastMin": 1.25,
+		"speed": 600,
+		"num": 1,
+		"time": ""
+	},
+	{
+		"id": 2,
+		"enumName": "Saw",
+		"atk": 40,
+		"recastDef": 4,
+		"recastMin": 1.5,
+		"speed": 360,
+		"num": 1,
+		"time": 1
+	},
+	{
+		"id": 3,
+		"enumName": "FrameThrower",
+		"atk": 18,
+		"recastDef": 3.5,
+		"recastMin": 1.25,
+		"speed": 210,
+		"num": 4,
+		"time": ""
+	},
+	{
+		"id": 4,
+		"enumName": "TurretShell",
+		"atk": 20,
+		"recastDef": 8,
+		"recastMin": 4,
+		"speed": 480,
+		"num": 1,
+		"time": ""
+	},
+	{
+		"id": 5,
+		"enumName": "WaveCannon",
+		"atk": 120,
+		"recastDef": 7,
+		"recastMin": 3,
+		"speed": 0,
+		"num": 1,
+		"time": 2
+	},
+	{
+		"id": 1003,
+		"enumName": "BioBlast",
+		"atk": 18,
+		"recastDef": 3.5,
+		"recastMin": 1.25,
+		"speed": 210,
+		"num": 4,
+		"time": ""
+	},
+	{
+		"id": 1004,
+		"enumName": "TurretBomb",
+		"atk": 50,
+		"recastDef": 8,
+		"recastMin": 4,
+		"speed": 0,
+		"num": 1,
+		"time": 4
+	}
+]
