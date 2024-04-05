@@ -264,15 +264,7 @@ public partial class EnemyCmm : MonoBehaviour
             case MoveType.HomingToPL:
                 if (plObj == null) { return; }
                 // PL•ûŒü‚ÖŒü‚©‚¤
-                {
-                    float radian =
-                        Mathf.Atan2(plObj.transform.position.y - transform.position.y,
-                                    plObj.transform.position.x - transform.position.x);
-                    moveVec = Vector3.zero;
-                    moveVec.x = moveSpd * Mathf.Cos(radian);
-                    moveVec.y = moveSpd * Mathf.Sin(radian);
-                }
-                transform.position += moveVec * Time.deltaTime;
+                EnemyMoveControl();
                 break;
 
             case MoveType.StraightToPL:

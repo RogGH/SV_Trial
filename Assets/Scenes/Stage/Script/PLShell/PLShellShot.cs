@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PLShellShot : MonoBehaviour
+public partial class PLShellShot : MonoBehaviour
 {
     public HitAtkData atkData;
 
@@ -12,9 +12,8 @@ public class PLShellShot : MonoBehaviour
     Player plScr;
 
     float radian;
-    Vector3 initScl;
-    Vector3 vel = Vector3.zero;
-    float moveSpd;
+    Vector3 velocity = Vector3.zero;
+    float moveSpeed;
     int hitNum = 1;
 
     void Start()
@@ -22,12 +21,16 @@ public class PLShellShot : MonoBehaviour
         hb = GetComponent<HitBase>();
         spComp = GetComponent<SpriteRenderer>();
 
-        // 
-        vel.x = moveSpd * Mathf.Cos(radian);
-        vel.y = moveSpd * Mathf.Sin(radian);
+        velocity.x = moveSpeed * Mathf.Cos(0);
+        velocity.y = moveSpeed * Mathf.Sin(0);
+
+        // ë¨ìxê›íË
+        SetSpeed();
+
+        float dirRadian = Mathf.Atan2(velocity.y, velocity.x);
 
         Vector3 localRot = transform.localEulerAngles;
-        localRot.z = Mathf.Rad2Deg * radian;
+        localRot.z = Mathf.Rad2Deg * dirRadian;
         transform.localEulerAngles = localRot;
 
         Destroy(gameObject, WeaponDefine.LiveCountDef);
@@ -48,7 +51,7 @@ public class PLShellShot : MonoBehaviour
             }
         }
 
-        transform.position += vel * Time.deltaTime;
+        transform.position += velocity * Time.deltaTime;
         // åªç›ÇÃç¿ïWÇ©ÇÁÅAï\é¶óDêÊÇåàíËÇ≥ÇπÇƒÇ›ÇÈ
         spComp.sortingOrder = IObject.GetSpriteOrder(transform.position);
 
@@ -69,7 +72,7 @@ public class PLShellShot : MonoBehaviour
         transform.localScale *= plScr.GetWeaponScaleRate(wep.areaRate, abi.atkAreaRate);
 
         // íeë¨
-        moveSpd = plScr.GetWeaponMoveSpd(initData.speed, wep.speedRate, abi.atkMoveRate);
+        moveSpeed = plScr.GetWeaponMoveSpd(initData.speed, wep.speedRate, abi.atkMoveRate);
 
         // ïêäÌï èàóù
         if (wep.flag1) { hitNum++; }            // ÉtÉâÉOÇPÇ™óßÇ¡ÇƒÇ¢ÇΩÇÁä—í Å{ÇP

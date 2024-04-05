@@ -1,9 +1,7 @@
 // スクリプタブルオブジェクトからの読み込み
 //#define GDataLoadSObj
-
 // JSONからの読み込み
 //#define GDataLoadJson
-
 // スクリプトからの読み込み
 #define GDataLoadScript
 
