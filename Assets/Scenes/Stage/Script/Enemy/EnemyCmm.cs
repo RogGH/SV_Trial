@@ -477,7 +477,7 @@ public partial class EnemyCmm : MonoBehaviour
         // ‹­§I—¹‚Ì‚Ís‚í‚È‚¢
         if (!escapeFlag)
         {
-            DropManager.Ins.BootDropItem(transform.position, dType);
+            DropItemControl();
             StageManager.Ins.PlScr.KillNum++;
         }
         GetComponent<BoxCollider2D>().enabled = false;

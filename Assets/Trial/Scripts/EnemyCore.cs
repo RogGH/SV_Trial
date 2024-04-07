@@ -25,4 +25,16 @@ public partial class EnemyCmm
         // 移動処理
         transform.position += moveVec * Time.deltaTime;
     }
+
+
+    // アイテムドロップを設定
+    public void DropItemControl() 
+    {
+        // ここに死亡チェックを書く
+        if (hb.CheckDie())
+        {
+            // アイテムを起動
+            DropManager.Ins.BootDropItem(transform.position, dType);
+        }
+    }
 }
