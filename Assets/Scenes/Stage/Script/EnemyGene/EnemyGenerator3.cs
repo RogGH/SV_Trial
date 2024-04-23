@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class GenerateDataTable
 {
-    [Header("開始時間")]public float start;
-    [Header("終了時間")]public float end;
+    [Header("出現開始時間（秒）")]public float start;
+    [Header("出現終了時間（秒）")]public float end;
     [Header("敵のプレファブ")]public GameObject enemy;
-    [Header("出現時間")]public float bootTimer;
+    [Header("出現間隔（秒）")]public float bootTimer;
     [HideInInspector]public float timer = 0;
 }
 
