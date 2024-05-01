@@ -58,6 +58,7 @@ public class WeaponManager : MonoBehaviour
     public WeaponInitSOBJDataTable InitTable { get { return initDataTable; } }
     public WeaponLVUPSOBJDataTable LVUPTable{ get { return lvupDataTable; } }
 
+    public GunSOBJ gunSobj;
 
     private void Awake()
     {

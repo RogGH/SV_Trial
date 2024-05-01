@@ -116,7 +116,21 @@ public class LevelUpChoiceButton : MonoBehaviour
         // テキスト設定
         if (textJaggedTbl[iconNo].Length > level)
         {
-            infoText.text = textJaggedTbl[iconNo][level];
+            if (iconNo == (int)IconNo.MShot) {
+                GunSOBJ sObj = WeaponManager.Ins.gunSobj;
+                switch (level) {
+                    case 1: infoText.text = sObj.string2; break;
+                    case 2: infoText.text = sObj.string3; break;
+                    case 3: infoText.text = sObj.string4; break;
+                    case 4: infoText.text = sObj.string5; break;
+                    case 5: infoText.text = sObj.string6; break;
+                    case 6: infoText.text = sObj.string7; break;
+                    default: infoText.text = "エラーだよ";  break;
+                }
+            }
+			else{
+                infoText.text = textJaggedTbl[iconNo][level];
+            }
         }
         else {
             Debug.Log("level text over!!" + level);

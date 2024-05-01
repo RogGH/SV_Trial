@@ -295,14 +295,18 @@ public partial class Player : MonoBehaviour
         exp += addExp;
         totalExp += addExp;
         if (exp >= nextExp) {
-            level++;
-            exp -= nextExp;
-            // 次の経験値を増やす
-            nextExp = (int)(nextExp * LevelUpRate);
-            // レベルアップ設定
-            StageManager.Ins.SetLevelUp();
-            // SE
-            SeManager.Instance.Play("LevelUp");
+            // キャンバスが表示されていなければレベルが上がらない
+            GameObject gCanvas = StageManager.Ins.BaseUI.gameObject.transform.root.gameObject;
+            if (gCanvas.activeSelf) {
+                level++;
+                exp -= nextExp;
+                // 次の経験値を増やす
+                nextExp = (int)(nextExp * LevelUpRate);
+                // レベルアップ設定
+                StageManager.Ins.SetLevelUp();
+                // SE
+                SeManager.Instance.Play("LevelUp");
+            }
             return true;
         }
         return false;
@@ -544,6 +548,29 @@ public partial class Player : MonoBehaviour
     {
         int sNo = ImageManager.Ins.ConvIconNoToWeaponSerialNo(iNo);
         WeaponLVUPSOBJData data = WeaponManager.Ins.LVUPTable.data[sNo];
+
+        // ハンドガン専用処理
+        if (sNo == 0 ) {
+            GunSOBJ gSobj = WeaponManager.Ins.gunSobj;
+            data.name = gSobj.wName;
+            data.id = gSobj.id;
+
+            data.key[0] = gSobj.key1;
+            data.key[1] = gSobj.key2;
+            data.key[2] = gSobj.key3;
+            data.key[3] = gSobj.key4;
+            data.key[4] = gSobj.key5;
+            data.key[5] = gSobj.key6;
+            data.key[6] = gSobj.key7;
+
+            data.value[0] = gSobj.value1;
+            data.value[1] = gSobj.value2;
+            data.value[2] = gSobj.value3;
+            data.value[3] = gSobj.value4;
+            data.value[4] = gSobj.value5;
+            data.value[5] = gSobj.value6;
+            data.value[6] = gSobj.value7;
+        }
 
         for (int i = 0; i < lv; i++)
         {

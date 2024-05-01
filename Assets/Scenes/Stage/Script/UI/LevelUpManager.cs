@@ -45,27 +45,28 @@ public class LevelUpManager : MonoBehaviour
 
     public void ButtonSetUp()
     {
-        // 全部表示
+        // 一旦全部非表示に
         for (int i = 0; i < ChoiceNum; ++i){
             choiceButtonObj[i].SetActive(false);
         }
 
+        // 金アイテム
+        // ボタン設定
+        choiceButtonObj[0].SetActive(true);
+        choiceNoTbl[0] = (int)IconNo.Money;
+        // ボタン関連のアップデート
+        choiceButtonScr[0].ImageUpdate(0);
+
+        // 回復アイテム
+        // ボタン設定
+        choiceButtonObj[1].SetActive(true);
+        choiceNoTbl[1] = (int)IconNo.Potion;
+        // ボタン関連のアップデート
+        choiceButtonScr[1].ImageUpdate(0);
+
         // 武器もアイテムも取れない状況
         if (plScr.CheckWeaponLevelAllMax() && plScr.CheckItemLevelAllMax())
         {
-            // 金アイテム
-            // ボタン設定
-            choiceButtonObj[0].SetActive(true);
-            choiceNoTbl[0] = (int)IconNo.Money;
-            // ボタン関連のアップデート
-            choiceButtonScr[0].ImageUpdate(0);
-
-            // 回復アイテム
-            // ボタン設定
-            choiceButtonObj[1].SetActive(true);
-            choiceNoTbl[1] = (int)IconNo.Potion;
-            // ボタン関連のアップデート
-            choiceButtonScr[1].ImageUpdate(0);
         }
         else
         {
@@ -112,8 +113,11 @@ public class LevelUpManager : MonoBehaviour
         List<int> randList = new List<int>();
         int chkNo = 0;
         int chkNum = (int)IconNo.LevelUpItemNum;
+        // アイテムを全部装備してるかチェック
         if (plScr.CheckItemLevelAllMax()) { chkNo += (int)IconNo.ItemNum; }
+        // 武器を全部装備しているかチェック
         if (plScr.CheckWeaponLevelAllMax()) { chkNum -= (int)IconNo.WeaponNum; }
+        // 
         for (; chkNo < chkNum; ++chkNo)
         {
             int eNo = plScr.CheckEquip(chkNo);
@@ -132,11 +136,18 @@ public class LevelUpManager : MonoBehaviour
                 {
                     // 武器
                     if (wEquipMaxFlag) { continue; }
+
+                    // とりあえず武器は出なくする
+                    int wNo = ImageManager.Ins.ConvIconNoToWeaponSerialNo(chkNo);
+                    if (WeaponFlag.Ins.FlagList[wNo] == false) { continue; }
                 }
                 else
                 {
-                    // アイテム
+                    // アイテムが全て装備されている場合（結構無駄がある処理だが、今のところ放置）
                     if (iEquipMaxFlag) { continue; }
+
+                    // フラグチェック
+                    if (ItemFlag.Ins.FlagList[chkNo] == false) { continue; }
                 }
             }
             randList.Add(chkNo);        // リストに追加

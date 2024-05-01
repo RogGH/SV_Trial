@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 101700268069144021}
   - component: {fileID: 101700268069144020}
   m_Layer: 0
-  m_Name: Unity
+  m_Name: Yuko
   m_TagString: Player
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3a33d8c5bf447b141b18c00fb67e336f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b1cec6a03c741b4d8a341fe6449fd44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 101700268069144030}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f891aa23593814c4e8af4a5267cd1572, type: 2}
+  m_Controller: {fileID: 9100000, guid: 68ff575adf1f9014bade796ca1479ee5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defData: {fileID: 101700268181433627}
-  DieEff: {fileID: 3717600856593417576, guid: 6259ebeaabacc6c47a6c7cf02aa256af, type: 3}
   WeaponTbl:
   - initFlag: 0
     iconNo: 0
@@ -248,14 +247,6 @@ MonoBehaviour:
     recastRate: 0
     addShotNum: 0
   DieFlag: 0
-  defaultDir: -1
-  animatorTbl:
-  - {fileID: 9100000, guid: f891aa23593814c4e8af4a5267cd1572, type: 2}
-  - {fileID: 9100000, guid: 1df9c51d67d6efe48859cd1286265d07, type: 2}
-  - {fileID: 9100000, guid: 1df9c51d67d6efe48859cd1286265d07, type: 2}
-  - {fileID: 9100000, guid: 1df9c51d67d6efe48859cd1286265d07, type: 2}
-  - {fileID: 9100000, guid: 1df9c51d67d6efe48859cd1286265d07, type: 2}
-  - {fileID: 9100000, guid: 1df9c51d67d6efe48859cd1286265d07, type: 2}
 --- !u!50 &101700268069144021
 Rigidbody2D:
   serializedVersion: 4
