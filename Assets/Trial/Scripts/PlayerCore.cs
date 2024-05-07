@@ -8,10 +8,8 @@ public partial class Player
     void playerCore() 
     {
         // ここにキー制御命令を入力
-        KeyInputUpdate();
 
         // ここに武器制御命令を入力
-        WeaponControl();
     }
 
     // キー入力

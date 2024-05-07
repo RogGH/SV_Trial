@@ -8,8 +8,7 @@ public partial class PLShellShot
     public void SetSpeed()
     {
         // ‚±‚±‚É‚˜‘¬“x‚ğİ’è‚·‚é
-        velocity.x = moveSpeed * Mathf.Cos(radian);
+
         // ‚±‚±‚É‚™‘¬“x‚ğİ’è‚·‚é
-        velocity.y = moveSpeed * Mathf.Sin(radian);
     }
 }

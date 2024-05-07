@@ -13,7 +13,7 @@ public partial class EnemyCmm
 
         float radian = 0;
         // ここにプレイヤーへの角度を計算する処理を記入
-        radian = Mathf.Atan2(distY, distX);
+
 
         // 移動速度を設定
         if (radian != 0) 
@@ -31,7 +31,7 @@ public partial class EnemyCmm
     public void DropItemControl() 
     {
         // ここに死亡チェックを書く
-        if (hb.CheckDie())
+        if (false)
         {
             // アイテムを起動
             DropManager.Ins.BootDropItem(transform.position, dType);
