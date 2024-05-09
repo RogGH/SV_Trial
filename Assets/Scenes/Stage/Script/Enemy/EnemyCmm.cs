@@ -25,6 +25,10 @@ public partial class EnemyCmm : MonoBehaviour
         Jail,               // ジェイル（自爆）
     };
 
+    // 体験バージョンかチェック
+    [Header("体験版バージョンフラグ")]
+    public bool TrialVerision = false;
+
     // 外部設定
     public Material dieMat;
     [SerializeField] int defaultDir = -1;
@@ -264,7 +268,27 @@ public partial class EnemyCmm : MonoBehaviour
             case MoveType.HomingToPL:
                 if (plObj == null) { return; }
                 // PL方向へ向かう
-                EnemyMoveControl();
+                if ( TrialVerision == true ) {
+                    EnemyMoveControl();
+                }
+                else {
+                    // PLと敵との距離を計算
+                    float distX = plObj.transform.position.x - transform.position.x;
+                    float distY = plObj.transform.position.y - transform.position.y;
+
+                    // ここにプレイヤーへの角度を計算する処理を記入
+                    float radian = Mathf.Atan2(distY, distX);
+
+                    // 移動速度を設定
+                    if (radian != 0)
+                    {
+                        moveVec.x = moveSpd * Mathf.Cos(radian);
+                        moveVec.y = moveSpd * Mathf.Sin(radian);
+                    }
+
+                    // 移動処理
+                    transform.position += moveVec * Time.deltaTime;
+                }
                 break;
 
             case MoveType.StraightToPL:
@@ -477,7 +501,13 @@ public partial class EnemyCmm : MonoBehaviour
         // 強制終了の時は行わない
         if (!escapeFlag)
         {
-            DropItemControl();
+            if ( TrialVerision == true) {
+                DropItemControl();
+            }
+            else {
+                // アイテムを起動
+                DropManager.Ins.BootDropItem(transform.position, dType);
+            }
             StageManager.Ins.PlScr.KillNum++;
         }
         GetComponent<BoxCollider2D>().enabled = false;

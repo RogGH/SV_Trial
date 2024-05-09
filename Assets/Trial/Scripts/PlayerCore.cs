@@ -83,7 +83,14 @@ public partial class Player
                 // ƒnƒ“ƒhƒKƒ“
                 {
                     GameObject obj = Instantiate(wepObj, transform.position, Quaternion.identity);
-                    obj.GetComponent<PLShellShotControl>().SetShotCtlPara(gameObject, wep, ability, GetAngleToPLMouse());
+                    if (TrialVerision == true)
+                    {
+                        obj.GetComponent<PLShellShotControl>().SetShotCtlPara(gameObject, wep, ability, GetAngleToPLMouse());
+                    }
+                    else
+                    {
+                        obj.GetComponent<PLShellShotControl2>().SetShotCtlPara(gameObject, wep, ability, GetAngleToPLMouse());
+                    }
                 }
                 break;
 

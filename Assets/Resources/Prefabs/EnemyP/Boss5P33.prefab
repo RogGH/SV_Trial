@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aace7a8f7ba9d9419b0df4eb9d93d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrialVerision: 0
   dieMat: {fileID: 2100000, guid: c5d34b1940e585b44a9bc988251706b3, type: 2}
   defaultDir: -1
   moveType: 6
@@ -176,7 +177,7 @@ MonoBehaviour:
   - {fileID: 1173082891861721738, guid: 911f7b0c513f39746a8689c8c720220c, type: 3}
   - {fileID: 271596959047943995, guid: 166a32835c7760d44b281d8828ac2b21, type: 3}
   - {fileID: 8118977525112840012, guid: ac94530d600cf8e4197a60cdb877a2a1, type: 3}
-  - {fileID: 4984798826959421801, guid: 272d708418f806a4f9f191ce89191dba, type: 3}
+  - {fileID: 4984798826959421801, guid: b7084c15bb4ab4e48b5511154803ca2b, type: 3}
 --- !u!1 &8476369410796658809
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkLayer: 1
   atkPow: 25
-  critical: 0
+  criHitRate: 0
+  criDmgRate: 0
   atkEle: 0
   atkKind: 0
   atkSP: 0

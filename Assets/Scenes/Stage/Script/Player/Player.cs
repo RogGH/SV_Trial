@@ -42,6 +42,10 @@ public partial class Player : MonoBehaviour
     HitBase hb;
     SpriteRenderer spComp;
 
+    // 体験バージョンかチェック
+    [Header("体験版バージョンフラグ")]
+    public bool TrialVerision = true;
+
 
     // アビリティ強化（レベル毎
     const float AB_MaxHPRate = 20;
@@ -224,7 +228,16 @@ public partial class Player : MonoBehaviour
         }
 
         // 移動関連
-        playerCore();
+        if (TrialVerision)
+        {
+            playerCore();
+        }
+        else 
+        {
+            KeyInputUpdate();
+
+            WeaponControl();
+        }
 
         if (StageManager.Ins.DebugMode) {
             // Lシフト＋Z

@@ -127,8 +127,11 @@ public class LevelUpChoiceButton : MonoBehaviour
                     case 6: infoText.text = sObj.string7; break;
                     default: infoText.text = "ÉGÉâÅ[ÇæÇÊ";  break;
                 }
+                infoText.text = infoText.text.Replace("\\n", "\n");
+
             }
-			else{
+            else
+            {
                 infoText.text = textJaggedTbl[iconNo][level];
             }
         }

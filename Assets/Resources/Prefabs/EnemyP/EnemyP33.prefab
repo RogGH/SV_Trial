@@ -122,7 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkLayer: 1
   atkPow: 20
-  critical: 0
+  criHitRate: 0
+  criDmgRate: 0
   atkEle: 0
   atkKind: 0
   atkSP: 0
@@ -164,7 +165,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8118977525112840001}
   - component: {fileID: 8118977525112840014}
-  - component: {fileID: 8118977525112840000}
   - component: {fileID: 8118977525112840003}
   - component: {fileID: 8118977525112840002}
   - component: {fileID: 8304979895758336174}
@@ -244,28 +244,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8118977525112840000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8118977525112840012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7196196746f57488461567af6ac414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dieMat: {fileID: 2100000, guid: c5d34b1940e585b44a9bc988251706b3, type: 2}
-  dType: 2
-  defaultDir: 1
-  moveType: 0
-  moveSpd: 50
-  atkType: 5
-  escapeTime: 60
-  SignObj: {fileID: 2415992934130521378, guid: 8fb4741eb0e98814eba0e1967edd9b75, type: 3}
-  ShellObj: {fileID: 518775140280209866, guid: 79063819f82174c478d664bee3ce3317, type: 3}
-  BossShellTbl: []
 --- !u!114 &8118977525112840003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aace7a8f7ba9d9419b0df4eb9d93d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrialVerision: 0
   dieMat: {fileID: 2100000, guid: c5d34b1940e585b44a9bc988251706b3, type: 2}
   defaultDir: -1
   moveType: 0

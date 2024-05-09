@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClearManager : MonoBehaviour
 {
+    public string moveSceneName = "Stage";
     int rno = 0;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class ClearManager : MonoBehaviour
             {
                 StageManager.Ins.Save();
                 SeManager.Instance.Play("TitleDeside");
-                FadeManager.Instance.LoadScene("Stage", 1.0f);
+                FadeManager.Instance.LoadScene(moveSceneName, 1.0f);
                 rno++;
             }
         }

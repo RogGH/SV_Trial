@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defData: {fileID: 101700268181433627}
+  TrialVerision: 1
   WeaponTbl:
   - initFlag: 0
     iconNo: 0

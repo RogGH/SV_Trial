@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour
 {
+    public string RetrySceneName = "Stage";
     int rno = 0;
 
     void Start()
@@ -18,7 +19,7 @@ public class GameOverManager : MonoBehaviour
             {
                 StageManager.Ins.Save();
                 SeManager.Instance.Play("TitleDeside");
-                FadeManager.Instance.LoadScene("Stage", 1.0f);
+                FadeManager.Instance.LoadScene(RetrySceneName, 1.0f);
                 rno++;
             }
         }

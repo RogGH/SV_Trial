@@ -16,17 +16,17 @@ MonoBehaviour:
   weaponName: HandGun
   key:
   - Get
+  - Num
+  - Num
   - Dmg
-  - Recast
+  - Flag1
   - CriHit
-  - Num
-  - Speed
-  - Num
+  - Recast
   value:
   - 1
+  - 2
+  - 3
   - 50
+  - 1
   - 25
   - 50
-  - 2
-  - 50
-  - 3
