@@ -33,5 +33,4 @@ public class ClearManager : MonoBehaviour
         // アクティブに
         gameObject.SetActive(true);
     }
-
 }
