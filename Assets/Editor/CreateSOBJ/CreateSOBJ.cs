@@ -18,12 +18,12 @@ public class CreateSOBJ : EditorWindow
     const string WepLVUPDataPath = "WeaponLVUPData";
 
     // èâä˙âª
-    [MenuItem("Tools/Create SObj")]
-    static void Init()
-    {
-        CreateSOBJ window = (CreateSOBJ)EditorWindow.GetWindow(typeof(CreateSOBJ));
-        window.Show();
-    }
+    //[MenuItem("Tools/Create SObj")]
+    //static void Init()
+    //{
+    //    CreateSOBJ window = (CreateSOBJ)EditorWindow.GetWindow(typeof(CreateSOBJ));
+    //    window.Show();
+    //}
 
     // ï\é¶ä÷òA
     private void OnGUI()

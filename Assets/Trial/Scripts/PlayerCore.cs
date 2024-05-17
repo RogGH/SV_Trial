@@ -10,6 +10,7 @@ public partial class Player
         // ここにキー制御命令を入力
 
         // ここに武器制御命令を入力
+
     }
 
     // キー入力

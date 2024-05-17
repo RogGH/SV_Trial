@@ -11,11 +11,17 @@ public partial class Player : MonoBehaviour
         set { exp = value; }
     }
 
+    int nextExpTR = 20;
     int nextExp = 50;
     public int NextExp
     {
-        get { return nextExp; }
-        set { nextExp = value; }
+        get {
+            return TrialVerision ? nextExpTR : nextExp;
+        }
+        set {
+            if (TrialVerision) { nextExpTR = value; }
+            else { nextExp = value; }
+       }
     }
 
     int level = 1;
@@ -64,6 +70,7 @@ public partial class Player : MonoBehaviour
     const float AB_RecastRate = 10;
 
     // 調整用パラメータ
+    const float LevelUpRateTR = 1.1f;    // レベルアップの指数的なやつ
     const float LevelUpRate = 1.25f;    // レベルアップの指数的なやつ
     const float MoveSpeed = 2.4f;       // 基本移動速度
     const float DieCounter = 3.0f;      // 死亡待機
@@ -243,7 +250,7 @@ public partial class Player : MonoBehaviour
             // Lシフト＋Z
             if (Input.GetKeyDown(KeyCode.Z) && Input.GetKey(KeyCode.LeftShift))
             {
-                exp = nextExp;
+                exp = NextExp;
                 AddExp(1);
                 AddMoney(100000);
             }
@@ -307,14 +314,16 @@ public partial class Player : MonoBehaviour
         int addExp = (int)CalcRateToValue(value, ability.expRate);
         exp += addExp;
         totalExp += addExp;
-        if (exp >= nextExp) {
+        if (exp >= NextExp) {
             // キャンバスが表示されていなければレベルが上がらない
             GameObject gCanvas = StageManager.Ins.BaseUI.gameObject.transform.root.gameObject;
             if (gCanvas.activeSelf) {
                 level++;
-                exp -= nextExp;
+                exp -= NextExp;
                 // 次の経験値を増やす
-                nextExp = (int)(nextExp * LevelUpRate);
+                if ( TrialVerision ) { NextExp = (int)(NextExp * LevelUpRateTR); }
+                else { NextExp = (int)(NextExp * LevelUpRate); }
+                
                 // レベルアップ設定
                 StageManager.Ins.SetLevelUp();
                 // SE
