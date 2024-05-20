@@ -38,7 +38,7 @@ public partial class Player
         if (lr != 0)
         {
             Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * lr;
+            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(lr);
             scale.x *= defaultDir;
             transform.localScale = scale;
         }
