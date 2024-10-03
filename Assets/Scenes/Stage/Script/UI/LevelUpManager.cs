@@ -19,7 +19,6 @@ public class LevelUpManager : MonoBehaviour
     {
         img = ImageManager.Ins;
         plScr = StageManager.Ins.PlScr;
-        choiceNoTbl = new int[ChoiceNum];
     }
 
     // Update is called once per frame
