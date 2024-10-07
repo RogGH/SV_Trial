@@ -35,7 +35,9 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
-        Screen.SetResolution(1280, 720, false);
+        // フルスクリーンに
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
 
         cCaution = caution.GetComponent<Image>();
         cTitle = title.GetComponent<Image>();

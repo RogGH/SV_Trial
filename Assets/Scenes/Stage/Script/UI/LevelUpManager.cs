@@ -49,55 +49,51 @@ public class LevelUpManager : MonoBehaviour
             choiceButtonObj[i].SetActive(false);
         }
 
-        // 金アイテム
-        // ボタン設定
-        choiceButtonObj[0].SetActive(true);
-        choiceNoTbl[0] = (int)IconNo.Money;
-        // ボタン関連のアップデート
-        choiceButtonScr[0].ImageUpdate(0);
+        // 選択可能リストを作成
+        List<int> randList = CreateList();
+        // ループ回数を決定
+        int loopNum = ChoiceNum;
+        // リストの数が少ない場合はリストの数に合わせる
+        if (randList.Count < ChoiceNum) { loopNum = randList.Count; }
 
-        // 回復アイテム
-        // ボタン設定
-        choiceButtonObj[1].SetActive(true);
-        choiceNoTbl[1] = (int)IconNo.Potion;
-        // ボタン関連のアップデート
-        choiceButtonScr[1].ImageUpdate(0);
-
-        // 武器もアイテムも取れない状況
-        if (plScr.CheckWeaponLevelAllMax() && plScr.CheckItemLevelAllMax())
+        // 選択肢設定
+        for (int choiceNo = 0; choiceNo < loopNum; ++choiceNo)
         {
-        }
-        else
-        {
-            // 選択可能リストを作成
-            List<int> randList = CreateList();
-
-            // 選択肢内容決定
-            int[] choiceTbl = new int[ChoiceNum] { -1, -1, -1, -1 };
-            int loopNum = ChoiceNum;
-            if (randList.Count < ChoiceNum) { loopNum = randList.Count; }
-
-            // 選択肢設定
-            for (int choiceNo = 0; choiceNo < loopNum; ++choiceNo)
+            if (randList.Count > 0)
             {
-                if (randList.Count > 0)
-                {
-                    int rand = Random.Range(0, randList.Count);
-                    int iconNo = randList[rand];
-                    int level = plScr.GetEquipLevel(iconNo);
+                int rand = Random.Range(0, randList.Count);
+                int iconNo = randList[rand];
+                int level = plScr.GetEquipLevel(iconNo);
 
-                    // ボタン設定
-                    choiceNoTbl[choiceNo] = iconNo;
-                    // ボタン関連のアップデート
-                    choiceButtonScr[choiceNo].ImageUpdate(level);
-                    // 番号保存
-                    choiceTbl[choiceNo] = iconNo;
-                    choiceButtonObj[choiceNo].SetActive(true);
+                // ボタン設定
+                choiceNoTbl[choiceNo] = iconNo;
+                choiceButtonScr[choiceNo].ImageUpdate(level);
+                choiceButtonObj[choiceNo].SetActive(true);
 
-                    // リストから削除
-                    randList.Remove(iconNo);
-                }
+                // リストから削除
+                randList.Remove(iconNo);
             }
+        }
+
+        // リストが０の場合は、アイテムを出す
+        int activeNum = 0;
+        for (int i = 0; i < ChoiceNum; ++i)
+        {
+            if (choiceButtonObj[i].activeInHierarchy)
+            {
+                activeNum++;
+            }
+        }
+        if (activeNum == 0)
+        {
+            choiceButtonObj[0].SetActive(true);
+            choiceNoTbl[0] = (int)IconNo.Money;
+            choiceButtonScr[0].ImageUpdate(0);
+            // 回復アイテム
+            choiceButtonObj[1].SetActive(true);
+            choiceNoTbl[1] = (int)IconNo.Potion;
+            choiceButtonScr[1].ImageUpdate(0);
+            return;
         }
     }
 
